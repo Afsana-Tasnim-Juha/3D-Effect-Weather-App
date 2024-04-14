@@ -5,6 +5,7 @@
     margin-top: 80px;
     border-radius: 14px;
     background-image: linear-gradient(180deg, #1d0d81 0%, #03102c 100%);
+    perspective: 1000px;
 
 
 }
@@ -14,6 +15,8 @@
     justify-content: center;
     gap: 15px;
     padding-top: 65px;
+    position: relative;
+    z-index: 1;
 }
 
 .top-bar input {
@@ -28,4 +31,37 @@
     color: dimgrey;
     font-size: 22px;
     font-weight: 400;
+}
+
+
+
+.weather-card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    /* Add a shadow for depth perception */
+    transform-style: preserve-3d;
+    /* Maintain 3D transformations */
+    transition: transform 0.5s;
+    background-color: 0.5s;
+    margin-top: 20px;
+    margin-left: 50px;
+    /* Add smooth transition */
+}
+
+.weather-card:hover {
+    transform: rotateY(13deg);
+    margin-top: 20px;
+    background-color: #f0f0f0;
+}
+
+.weather-card-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }

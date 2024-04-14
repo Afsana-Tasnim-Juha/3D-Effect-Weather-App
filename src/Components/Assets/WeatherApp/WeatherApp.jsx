@@ -58,15 +58,16 @@ const WeatherApp = () => {
                     <IoSearchOutline />
                 </div>
             </div>
-            <div className='flex justify-center items-center mt-10' >
-                {weatherData && <img src={weatherData.current.condition.icon} alt="Weather icon" />}
+            <div className='weather-card'>
+                <div className='weather-card-content'>
+                    <div className='flex justify-center items-center mt-10'>
+                        {weatherData && <img src={weatherData.current.condition.icon} alt="Weather icon" />}
+                    </div>
+                    <div className='weather-location flex justify-center text-black font-normal text-4xl'>{weatherData && weatherData.location.name}</div>
+                    <div className='weather-temperature flex justify-center text-black font-normal text-6xl '>{weatherData && weatherData.current.temp_c}°C</div>
+                    <div className='weather-condition flex justify-center text-black font-normal text-2xl '>{weatherData && weatherData.current.condition.text}</div>
+                </div>
             </div>
-
-
-
-            <div className='weather-location flex justify-center text-white font-normal text-4xl'>{weatherData && weatherData.location.name}</div>
-            <div className='weather-temperature flex justify-center text-white font-normal text-6xl '>{weatherData && weatherData.current.temp_c}°C</div>
-            <div className='weather-condition flex justify-center text-white font-normal text-2xl '>{weatherData && weatherData.current.condition.text}</div>
         </div>
     );
 };
