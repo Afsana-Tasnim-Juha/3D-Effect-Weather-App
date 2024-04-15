@@ -6,6 +6,9 @@ import drizzle_icon from "../../Assets/../../assets/weather/64x64/day/drizzle.pn
 import rain_icon from "../../Assets/../../assets/weather/64x64/day/rain.png";
 import { IoSearchOutline } from "react-icons/io5";
 import { useState } from 'react';
+import { WiHumidity } from "react-icons/wi";
+import { LuWind } from 'react-icons/lu';
+
 
 const WeatherApp = () => {
     const [wicon, setWicon] = useState(cloud_icon);
@@ -31,6 +34,19 @@ const WeatherApp = () => {
             const data = await res.json();
             console.log("Received weather data:", data);
             setWeatherData(data);
+
+
+
+
+
+            const humidity = document.getElementsByClassName("humidity-percent");
+            const wind = document.getElementsByClassName("wind-rate");
+
+            humidity[0].innerHTML = data.current.humidity + "%";
+            wind[0].innerHTML = data.current.wind_kph + "kph";
+
+
+
 
             const iconCode = data.current.condition.code;
 
@@ -63,9 +79,38 @@ const WeatherApp = () => {
                     <div className='flex justify-center items-center mt-10'>
                         {weatherData && <img src={weatherData.current.condition.icon} alt="Weather icon" />}
                     </div>
-                    <div className='weather-location flex justify-center text-black font-normal text-4xl'>{weatherData && weatherData.location.name}</div>
-                    <div className='weather-temperature flex justify-center text-black font-normal text-6xl '>{weatherData && weatherData.current.temp_c}°C</div>
-                    <div className='weather-condition flex justify-center text-black font-normal text-2xl '>{weatherData && weatherData.current.condition.text}</div>
+                    <div className='weather-location flex justify-center text-[#1d0d81] font-normal text-4xl'>{weatherData && weatherData.location.name}</div>
+                    <div className='weather-temperature flex justify-center text-[#1d0d81] font-normal text-6xl '>{weatherData && weatherData.current.temp_c}°C</div>
+                    <div className='weather-condition flex justify-center text-[#1d0d81] font-normal text-2xl '>{weatherData && weatherData.current.condition.text}</div>
+
+
+
+                    <div className='data-container flex mt-[50px] text-[#1d0d81] justify-evenly gap-4'>
+                        {weatherData && weatherData.current && (
+                            <div className='element'>
+                                <div>
+                                    <WiHumidity className='mt-3 ' />
+                                </div>
+                                <div className='dataE'>
+                                    <div className="humidity-percent">{weatherData.current.humidity}%</div>
+                                    <div className="text">Humidity</div>
+                                </div>
+                            </div>
+                        )}
+                        {weatherData && weatherData.current && (
+                            <div className='element'>
+                                <div>
+                                    <LuWind className='mt-3 ' />
+                                </div>
+                                <div className='dataE'>
+                                    <div className="wind-rate">{weatherData.current.wind_kph}kph</div>
+                                    <div className="text">Wind Speed</div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+
                 </div>
             </div>
         </div>
