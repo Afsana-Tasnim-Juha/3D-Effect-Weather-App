@@ -5,10 +5,10 @@ The 3D effect WeatherApp, a React.js-built simple web application, enables users
 
 # Features:
 
-. Search for the weather by city name.
-. Real-time weather data fetched from the WeatherAPI.
-. Display of temperature, weather conditions, humidity, and wind speed.
-. Dynamic weather icons based on the current weather conditions.
+Search for the weather by city name.
+Real-time weather data fetched from the WeatherAPI.
+Display of temperature, weather conditions, humidity, and wind speed.
+Dynamic weather icons based on the current weather conditions.
 
 # Technologies Used:
 
